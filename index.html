@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Power BI Dashboard Experiment</title>
+    <script type="text/javascript">
+        function recordClick() {
+            // Hier können Sie die Logik für das Click-Tracking implementieren.
+            console.log("Dashboard clicked at " + new Date().toISOString());
+        }
+
+        function submitResult() {
+            var result = document.getElementById("resultInput").value;
+            var timestamp = new Date().toISOString();
+            // Hier können Sie die Logik für das Speichern des Ergebnisses und des Timestamps implementieren.
+            console.log("Result: " + result + ", Timestamp: " + timestamp);
+        }
+    </script>
+</head>
+<body>
+    <h1>Power BI Dashboard Experiment</h1>
+
+    <iframe title="Experiment_v1" width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiNzgwYzI1YjItNjI3YS00NzEyLWIzNDUtZWFlNzBhMDZiNjgxIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true" onclick="recordClick()"></iframe>
+
+    <form onsubmit="event.preventDefault(); submitResult();">
+        <label for="resultInput">Ergebnis:</label><br>
+        <input type="text" id="resultInput" name="result"><br>
+        <input type="submit" value="Ergebnis einreichen">
+    </form>
+</body>
+</html>
