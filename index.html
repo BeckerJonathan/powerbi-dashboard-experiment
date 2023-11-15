@@ -7,26 +7,29 @@
         let startTime;
         let endTime;
         let clickCount = 0;
+        let pageChanges = 0;
 
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('startButton').addEventListener('click', startExperiment);
             document.getElementById('stopButton').addEventListener('click', stopExperiment);
             document.addEventListener('click', recordClick);
+            initializePowerBIEventListeners();
         });
 
         function startExperiment() {
             startTime = new Date();
             clickCount = 0; // Zurücksetzen des Klickzählers
+            pageChanges = 0;
             document.getElementById('question').style.display = 'block'; // Frage anzeigen
         }
 
         function stopExperiment() {
             endTime = new Date();
-            let duration = (endTime - startTime) / 1000; // Dauer in Sekunden
+            let duration = (endTime - startTime) / 1000;
             let answer = document.getElementById('answerInput').value;
-            sendDataToGoogleSheet(startTime.toISOString(), endTime.toISOString(), duration, answer, clickCount);
-            document.getElementById('question').style.display = 'none'; // Frage ausblenden
-            document.getElementById('answerInput').value = ''; // Eingabefeld zurücksetzen
+            sendDataToGoogleSheet(startTime.toISOString(), endTime.toISOString(), duration, answer, clickCount, pageChanges);
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('answerInput').value = '';
         }
 
         function recordClick() {
@@ -37,9 +40,12 @@
             let embedContainer = document.getElementById('powerbiFrame');
             let report = powerbi.get(embedContainer);
 
+            report.on('loaded', async function(event) {
+                // Aktionen nach dem Laden des Berichts
+            });
+
             report.on('pageChanged', function(event) {
                 pageChanges++;
-                console.log('Page Changed: ', event.detail);
             });
         }
 
@@ -75,7 +81,7 @@
     </div>
 
     <!-- Ihr eingebettetes Power BI-Dashboard -->
-    <iframe title="Experiment_v1" width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiNzgwYzI1YjItNjI3YS00NzEyLWIzNDUtZWFlNzBhMDZiNjgxIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true"></iframe>
+    <iframe id="powerbiFrame" title="Experiment_v1" width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiNzgwYzI1YjItNjI3YS00NzEyLWIzNDUtZWFlNzBhMDZiNjgxIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true"></iframe>
 
 </body>
 </html>
