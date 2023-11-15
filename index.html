@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Power BI Dashboard Experiment</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/powerbi-client/2.18.5/powerbi.min.js"></script>
     <script type="text/javascript">
         let startTime;
         let endTime;
@@ -32,6 +33,16 @@
             clickCount++;
         }
 
+        function initializePowerBIEventListeners() {
+            let embedContainer = document.getElementById('powerbiFrame');
+            let report = powerbi.get(embedContainer);
+
+            report.on('pageChanged', function(event) {
+                pageChanges++;
+                console.log('Page Changed: ', event.detail);
+            });
+        }
+
         function sendDataToGoogleSheet(startTime, endTime, duration, answer, clickCount) {
             fetch('https://script.google.com/macros/s/AKfycbwdYpcF68WCd1-jxyHZD1_dD6VUqLIoJ_6siMALrL1k5EwUk7rSxN9jWCfW3flf17mJpA/exec', {
                 method: 'POST',
@@ -44,7 +55,8 @@
                     endTime: endTime,
                     duration: duration,
                     answer: answer,
-                    clickCount: clickCount
+                    clickCount: clickCount,
+                    pageChanges: pageChanges
                 })
             })
             .then(response => console.log('Daten gesendet'))
