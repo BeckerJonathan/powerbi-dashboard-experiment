@@ -85,20 +85,37 @@
             .catch(error => console.error('Error:', error));
         }
     </script>
+    <style>
+        /* Stil für das Dashboard und die Steuerelemente */
+        #powerbiFrame {
+            width: 100%; /* volle Breite */
+            height: 800px; /* höhere Höhe */
+            margin-top: 20px; /* Abstand oben */
+        }
+
+        .control-group {
+            margin-bottom: 20px; /* Abstand unten */
+        }
+    </style>
 </head>
 <body>
     <h1>Power BI Dashboard Experiment</h1>
 
-    <button id="startButton">Start</button>
-    <div id="question" style="display:none;">
-        <p id="questionText">Hier kommt Ihre Frage.</p>
-        <input type="text" id="answerInput" placeholder="Antwort eingeben">
-        <button id="stopButton">Stopp</button>
+    <div class="control-group">
+        <button id="startButton">Start</button>
+        <div id="question" style="display:none;">
+            <p id="questionText">Hier kommt Ihre Frage.</p>
+            <input type="text" id="answerInput" placeholder="Antwort eingeben">
+            <button id="stopButton">Stopp</button>
+        </div>
+        <button id="nextButton" style="display:none;">Weiter</button>
     </div>
-    <button id="nextButton" style="display:none;">Weiter</button>
 
-    <!-- Ihr eingebettetes Power BI-Dashboard -->
-    <iframe id="powerbiFrame" title="Experiment_v1" width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiNzgwYzI1YjItNjI3YS00NzEyLWIzNDUtZWFlNzBhMDZiNjgxIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true"></iframe>
+    <!-- Platzhalter -->
+    <div style="height: 50px;"></div> 
+
+    <!-- Dein eingebettetes Power BI-Dashboard -->
+    <iframe id="powerbiFrame" title="Experiment_v1" src="https://app.powerbi.com/view?r=eyJrIjoiNzgwYzI1YjItNjI3YS00NzEyLWIzNDUtZWFlNzBhMDZiNjgxIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true"></iframe>
 
 </body>
 </html>
