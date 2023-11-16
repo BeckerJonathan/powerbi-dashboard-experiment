@@ -86,15 +86,43 @@
         }
     </script>
     <style>
-        /* Stil für das Dashboard und die Steuerelemente */
+        /* Grundlegende Stile */
+        body {
+            font-family: Arial, sans-serif; /* Schriftart */
+        }
+
+        .control-group {
+            margin-bottom: 20px; /* Abstand unten */
+        }
+
         #powerbiFrame {
             width: 100%; /* volle Breite */
             height: 800px; /* höhere Höhe */
             margin-top: 20px; /* Abstand oben */
         }
 
-        .control-group {
-            margin-bottom: 20px; /* Abstand unten */
+        /* Stile für Buttons und Eingabefeld */
+        button, input[type="text"] {
+            padding: 10px 15px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px; /* abgerundete Ecken */
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50; /* grüne Farbe */
+            color: white;
+            cursor: pointer; /* Cursor-Stil */
+        }
+
+        button:hover {
+            background-color: #45a049; /* dunklerer Grünton beim Hover */
+        }
+
+        input[type="text"] {
+            width: 200px; /* Breite des Eingabefeldes */
+            border: 1px solid #ccc; /* Border-Stil */
         }
     </style>
 </head>
