@@ -64,12 +64,12 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    question: question,
                     startTime: startTime.toISOString(),
                     endTime: endTime.toISOString(),
                     duration: duration,
                     answer: answer,
-                    clickCount: clickCount
+                    clickCount: clickCount,
+                    question: question
                 })
             })
             .then(response => console.log('Daten gesendet'))
