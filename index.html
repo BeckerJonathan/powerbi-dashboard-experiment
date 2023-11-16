@@ -3,7 +3,7 @@
 <head>
     <title>Power BI Dashboard Experiment</title>
     <script type="text/javascript">
-        let startTime, endTime, clickCount, currentQuestion = 0;
+        let startTime, endTime, currentQuestion = 0;
         const questions = [
             "Welcher Artikel hat den höchsten Umsatz in der Kategorie Clothing und wie viel Umsatz ist das?",
             "Hier kommt Ihre zweite Frage.",
@@ -15,20 +15,11 @@
             document.getElementById('startButton').addEventListener('click', startExperiment);
             document.getElementById('stopButton').addEventListener('click', stopExperiment);
             document.getElementById('nextButton').addEventListener('click', nextQuestion);
-            var report = document.getElementById('powerbiFrame').contentWindow.PowerBI.embeds[0];
-
-            if (report) {
-                // Event Listener für Klicks auf Visuals im Power BI-Dashboard
-                report.on('visualClicked', function() {
-                    clickCount++;
-                });
-            }
             updateQuestion();
         });
 
         function startExperiment() {
             startTime = new Date();
-            clickCount = 0;
             document.getElementById('question').style.display = 'block';
             document.getElementById('startButton').style.display = 'none';
         }
@@ -44,9 +35,8 @@
             console.log("Endzeit:", endTime);
             console.log("Dauer:", duration);
             console.log("Antwort:", answer);
-            console.log("Klickanzahl:", clickCount);
             
-            sendDataToGoogleSheet(currentQuestionText, startTime, endTime, duration, answer, clickCount);
+            sendDataToGoogleSheet(currentQuestionText, startTime, endTime, duration, answer);
             document.getElementById('question').style.display = 'none';
             document.getElementById('answerInput').value = '';
             document.getElementById('nextButton').style.display = 'block';
@@ -67,12 +57,9 @@
             document.getElementById('questionText').textContent = questions[currentQuestion];
         }
 
-        function recordClick() {
-            clickCount++;
-        }
 
-        function sendDataToGoogleSheet(question, startTime, endTime, duration, answer, clickCount) {
-            console.log("Gesendete Daten:", { question, startTime, endTime, duration, answer, clickCount });
+        function sendDataToGoogleSheet(question, startTime, endTime, duration, answer) {
+            console.log("Gesendete Daten:", { question, startTime, endTime, duration, answer });
             fetch('https://script.google.com/macros/s/AKfycbz9n1xrZAkx599km-5cDlQ5ZZjbIllhtfoVnW7iPSu8n-zA_yi3QkbXcTrWiFo2o2gqLA/exec', {
                 method: 'POST',
                 mode: 'no-cors',
@@ -84,7 +71,6 @@
                     endTime: endTime.toISOString(),
                     duration: duration,
                     answer: answer,
-                    clickCount: clickCount,
                     question: question
                 })
             })
