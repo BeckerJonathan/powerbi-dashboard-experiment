@@ -15,7 +15,14 @@
             document.getElementById('startButton').addEventListener('click', startExperiment);
             document.getElementById('stopButton').addEventListener('click', stopExperiment);
             document.getElementById('nextButton').addEventListener('click', nextQuestion);
-            document.addEventListener('click', recordClick);
+            var report = document.getElementById('powerbiFrame').contentWindow.PowerBI.embeds[0];
+
+            if (report) {
+                // Event Listener für Klicks auf Visuals im Power BI-Dashboard
+                report.on('visualClicked', function() {
+                    clickCount++;
+                });
+            }
             updateQuestion();
         });
 
