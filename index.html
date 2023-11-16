@@ -2,24 +2,20 @@
 <html>
 <head>
     <title>Power BI Dashboard Experiment</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/powerbi-client/2.18.5/powerbi.min.js"></script>
     <script type="text/javascript">
         let startTime;
         let endTime;
         let clickCount = 0;
-        let pageChanges = 0;
 
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('startButton').addEventListener('click', startExperiment);
             document.getElementById('stopButton').addEventListener('click', stopExperiment);
             document.addEventListener('click', recordClick);
-            initializePowerBIEventListeners();
         });
 
         function startExperiment() {
             startTime = new Date();
             clickCount = 0; // Zurücksetzen des Klickzählers
-            pageChanges = 0;
             document.getElementById('question').style.display = 'block'; // Frage anzeigen
         }
 
@@ -36,18 +32,6 @@
             clickCount++;
         }
 
-        function initializePowerBIEventListeners() {
-            let embedContainer = document.getElementById('powerbiFrame');
-            let report = powerbi.get(embedContainer);
-
-            report.on('loaded', async function(event) {
-                // Aktionen nach dem Laden des Berichts
-            });
-
-            report.on('pageChanged', function(event) {
-                pageChanges++;
-            });
-        }
 
         function sendDataToGoogleSheet(startTime, endTime, duration, answer, clickCount) {
             fetch('https://script.google.com/macros/s/AKfycbwdYpcF68WCd1-jxyHZD1_dD6VUqLIoJ_6siMALrL1k5EwUk7rSxN9jWCfW3flf17mJpA/exec', {
@@ -61,8 +45,7 @@
                     endTime: endTime,
                     duration: duration,
                     answer: answer,
-                    clickCount: clickCount,
-                    pageChanges: pageChanges
+                    clickCount: clickCount
                 })
             })
             .then(response => console.log('Daten gesendet'))
