@@ -30,6 +30,8 @@
         function startExperiment() {
             startTime = new Date();
             document.getElementById('startButton').style.display = 'none';
+            document.getElementById('question').style.display = 'block';
+            document.getElementById('nextButton').style.display = 'none';
         }
         
         function stopExperiment() {
@@ -121,6 +123,12 @@
         
         #startButton, #question, #nextButton {
             display: none;
+        }
+
+        .disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
         }
     </style>
 </head>
