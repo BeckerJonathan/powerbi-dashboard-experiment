@@ -5,26 +5,16 @@
     <script type="text/javascript">
         let startTime, endTime, currentQuestion = 0;
         let selectedGroup = "";
-        const questionsGroup1 = [
-            "Frage 1 für Gruppe 1",
-            "Frage 2 für Gruppe 1",
-            // ... Weitere Fragen für Gruppe 1 ...
-        ];
-
-        const questionsGroup2 = [
-            "Frage 1 für Gruppe 2",
-            "Frage 2 für Gruppe 2",
-            // ... Weitere Fragen für Gruppe 2 ...
-        ];
-
+        const questionsGroup1 = ["Frage 1 für Gruppe 1", "Frage 2 für Gruppe 1"];
+        const questionsGroup2 = ["Frage 1 für Gruppe 2", "Frage 2 für Gruppe 2"];
         let questions;
 
-        document.addEventListener('DOMContentLoaded', (event) => {
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('group1Button').addEventListener('click', () => selectGroup('1'));
+            document.getElementById('group2Button').addEventListener('click', () => selectGroup('2'));
             document.getElementById('startButton').addEventListener('click', startExperiment);
             document.getElementById('stopButton').addEventListener('click', stopExperiment);
             document.getElementById('nextButton').addEventListener('click', nextQuestion);
-            document.getElementById('group1Button').addEventListener('click', () => selectGroup('1'));
-            document.getElementById('group2Button').addEventListener('click', () => selectGroup('2'));
         });
 
         function selectGroup(group) {
@@ -32,7 +22,9 @@
             questions = group === '1' ? questionsGroup1 : questionsGroup2;
             currentQuestion = 0;
             updateQuestion();
-            document.getElementById('question').style.display = 'block';
+            document.getElementById('group1Button').disabled = true;
+            document.getElementById('group2Button').disabled = true;
+            document.getElementById('startButton').style.display = 'block';
         }
 
         function startExperiment() {
