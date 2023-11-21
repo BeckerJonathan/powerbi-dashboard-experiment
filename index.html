@@ -23,8 +23,13 @@
             currentQuestion = 0;
             updateQuestion();
             // Blendet den nicht ausgewählten Button aus
-            document.getElementById('group1Button').style.display = group === '1' ? 'none' : 'block';
-            document.getElementById('group2Button').style.display = group === '2' ? 'none' : 'block';
+            if (group === '1') {
+                document.getElementById('group1Button').style.display = 'block'; // Zeigt Gruppe 1 Button
+                document.getElementById('group2Button').style.display = 'none'; // Versteckt Gruppe 2 Button
+            } else {
+                document.getElementById('group1Button').style.display = 'none'; // Versteckt Gruppe 1 Button
+                document.getElementById('group2Button').style.display = 'block'; // Zeigt Gruppe 2 Button
+            }
         
             document.getElementById('startButton').style.display = 'block';
         }
