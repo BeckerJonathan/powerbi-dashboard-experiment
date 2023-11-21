@@ -2,10 +2,44 @@
 <html>
 <head>
     <title>Dashboard Auswahl</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4; /* Leichter Hintergrund */
+            text-align: center; /* Zentriert den Inhalt */
+            padding-top: 50px; /* Abstand oben */
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05); /* Vergrößert den Button beim Hover */
+        }
+    </style>
 </head>
 <body>
     <h1>Wählen Sie Ihr Dashboard</h1>
-    <button onclick="window.location.href='statisches_dashboard.html';">Statisches Dashboard</button>
-    <button onclick="window.location.href='dynamisches_dashboard.html';">Dynamisches Dashboard</button>
+    <div class="button-container">
+        <button onclick="window.location.href='statisches_dashboard.html';">Statisches Dashboard</button>
+        <button onclick="window.location.href='dynamisches_dashboard.html';">Dynamisches Dashboard</button>
+    </div>
 </body>
 </html>
