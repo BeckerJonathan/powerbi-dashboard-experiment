@@ -22,8 +22,10 @@
             questions = group === '1' ? questionsGroup1 : questionsGroup2;
             currentQuestion = 0;
             updateQuestion();
-            document.getElementById('group1Button').disabled = true;
-            document.getElementById('group2Button').disabled = true;
+            // Blendet den nicht ausgewählten Button aus
+            document.getElementById('group1Button').style.display = group === '1' ? 'none' : 'block';
+            document.getElementById('group2Button').style.display = group === '2' ? 'none' : 'block';
+        
             document.getElementById('startButton').style.display = 'block';
         }
         
