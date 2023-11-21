@@ -24,14 +24,15 @@
             updateQuestion();
             // Blendet den nicht ausgewählten Button aus
             if (group === '1') {
-                document.getElementById('group1Button').style.display = 'block'; // Zeigt Gruppe 1 Button
-                document.getElementById('group2Button').style.display = 'none'; // Versteckt Gruppe 2 Button
+                document.getElementById('group1Button').disabled = true; // Deaktiviert Gruppe 1 Button
+                document.getElementById('group2Button').style.display = 'none';
             } else {
-                document.getElementById('group1Button').style.display = 'none'; // Versteckt Gruppe 1 Button
-                document.getElementById('group2Button').style.display = 'block'; // Zeigt Gruppe 2 Button
+                document.getElementById('group1Button').style.display = 'none';
+                document.getElementById('group2Button').disabled = true; // Deaktiviert Gruppe 2 Button
             }
-        
+
             document.getElementById('startButton').style.display = 'block';
+        
         }
         
         function startExperiment() {
