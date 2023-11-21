@@ -140,12 +140,30 @@
             color: #666666;
             cursor: not-allowed;
         }
+        /* Positioniert den Button oben links */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #4CAF50; /* Grüner Hintergrund */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: #45a049; /* Dunkleres Grün beim Hover */
+        }
+
     </style>
 </head>
 <body>
     <h1 align="center">Power BI Dashboard Experiment</h1>
     <h2 align="center">Statisches Dashboard</h2>
-    <button onclick="window.location.href='index.html';">Zurück zur Startseite</button>
+    <button class="back-button" onclick="window.location.href='index.html';">Startseite</button>
 
     <button id="group1Button">Gruppe 1</button>
     <button id="group2Button">Gruppe 2</button>
