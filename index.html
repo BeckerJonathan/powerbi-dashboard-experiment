@@ -56,10 +56,12 @@
             if (currentQuestion < questions.length - 1) {
                 currentQuestion++;
                 updateQuestion();
+                document.getElementById('question').style.display = 'block'; // Zeigt das Fragefeld an
+                document.getElementById('nextButton').style.display = 'none'; // Versteckt den "Weiter"-Button
             } else {
                 alert('Experiment abgeschlossen. Vielen Dank für Ihre Teilnahme!');
-                document.getElementById('question').style.display = 'none';
-                document.getElementById('nextButton').style.display = 'none';
+                document.getElementById('question').style.display = 'none'; // Versteckt das Fragefeld
+                document.getElementById('nextButton').style.display = 'none'; // Versteckt den "Weiter"-Button
             }
         }
         
@@ -141,9 +143,6 @@
     <!-- Platzhalter -->
     <div style="height: 25px;"></div> 
 
-    <!-- Eingebettetes Power BI-Dashboard -->
-    <iframe id="powerbiFrame" title="Experiment_v1" src="https://app.powerbi.com/view?r=eyJrIjoiODY1YWIwMmYtYTA4Ni00MzkzLWE1ZmUtNTJiZjcxYTkxY2NkIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true" style="width: 100%; height: 800px;"></iframe>
-
     <div class="control-group">
         <button id="startButton">Start</button>
         <div id="question" style="display:none;">
@@ -153,6 +152,11 @@
         </div>
         <button id="nextButton" style="display:none;">Weiter</button>
     </div>
+    
+    <!-- Eingebettetes Power BI-Dashboard -->
+    <iframe id="powerbiFrame" title="Experiment_v1" src="https://app.powerbi.com/view?r=eyJrIjoiODY1YWIwMmYtYTA4Ni00MzkzLWE1ZmUtNTJiZjcxYTkxY2NkIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true" style="width: 100%; height: 800px;"></iframe>
+
+
 
 
 </body>
