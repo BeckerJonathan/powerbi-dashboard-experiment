@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fragebogen</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Verhindert Scrollbalken */
+        }
+
+        iframe {
+            width: 100vw; /* Setzt die Breite auf die volle Breite des Viewports */
+            height: 100vh; /* Setzt die Höhe auf die volle Höhe des Viewports */
+            border: none; /* Entfernt den Rahmen */
+            position: absolute; /* Positionierung des iframes */
+            top: 0;
+            left: 0;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #4CAF50; /* Grüner Hintergrund */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+        
+        .back-button:hover {
+            background-color: #45a049; /* Dunkleres Grün beim Hover */
+        }
+    </style>
+</head>
+<body>
+
+    <button class="back-button" onclick="window.location.href='index.html';">Startseite</button>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSclknmDaAW-aaPEq0sHJpwPI5iwOnXoCfbExK745Wu7Dr7_dg/viewform?embedded=true">Wird geladen…</iframe>
+  
+</body>
+</html>
