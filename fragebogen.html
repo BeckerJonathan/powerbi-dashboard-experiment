@@ -6,15 +6,17 @@
         html, body {
             height: 100%;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 0;
+            overflow: hidden; /* Verhindert Scrollbalken */
         }
 
         iframe {
-            width: 100%; /* Breite des iframe auf 100% setzen */
-            height: 100%; /* Höhe des iframe auf 100% setzen */
-            border: none; /* Entfernt den Rahmen um den iframe */
+            width: 100vw; /* Setzt die Breite auf die volle Breite des Viewports */
+            height: 100vh; /* Setzt die Höhe auf die volle Höhe des Viewports */
+            border: none; /* Entfernt den Rahmen */
+            position: absolute; /* Positionierung des iframes */
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
