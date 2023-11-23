@@ -5,17 +5,23 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #f4f4f4; /* Leichter Hintergrund */
-            text-align: center; /* Zentriert den Inhalt */
-            padding-top: 50px; /* Abstand oben */
+            background: #f4f4f4;
+            text-align: center;
+            padding-top: 50px;
         }
 
         h1 {
             color: #333;
         }
 
-        .button-container {
-            margin-top: 30px;
+        .button-container, .dashboard-buttons, .survey-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dashboard-buttons, .survey-buttons {
+            justify-content: space-around;
         }
 
         button {
@@ -31,7 +37,7 @@
 
         button:hover {
             background-color: #45a049;
-            transform: scale(1.05); /* Vergrößert den Button beim Hover */
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -39,11 +45,14 @@
     <h1>Wählen Sie Ihr Dashboard</h1>
     <div class="button-container">
         <button onclick="window.location.href='demo.html';">Demo</button>
+    </div>
+    <div class="dashboard-buttons">
         <button onclick="window.location.href='statisches_dashboard.html';">Statisches Dashboard</button>
         <button onclick="window.location.href='Interaktives_Dashboard.html';">Interaktives Dashboard</button>
+    </div>
+    <div class="survey-buttons">
         <button onclick="window.location.href='ersterfragebogen.html';">1. Fragebogen</button>
         <button onclick="window.location.href='zweiterfragebogen.html';">2. Fragebogen</button>
-
     </div>
 </body>
 </html>
