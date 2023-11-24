@@ -5,15 +5,16 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #6dd5ed, #2193b0); /* Attraktiver Farbverlauf */
-            color: white; /* Weiße Schriftfarbe */
+            background: #121212; /* Dunkler Hintergrund */
+            color: #fff; /* Weiße Schrift */
             text-align: center;
             padding-top: 50px;
-            min-height: 100vh; /* Sorgt dafür, dass der Body immer mindestens so hoch wie das Viewport ist */
+            min-height: 100vh;
         }
 
         h1 {
-            margin-bottom: 40px; /* Größerer Abstand unter der Überschrift */
+            margin-bottom: 40px;
+            color: #fff; /* Weiße Schrift für die Überschrift */
         }
 
         .button-container, .dashboard-buttons, .survey-buttons {
@@ -24,24 +25,24 @@
         }
 
         .dashboard-buttons button, .survey-buttons button {
-            margin: 0 15px; /* Größerer Abstand zwischen den Buttons */
+            margin: 0 15px;
         }
 
         button {
-            background-color: #ffffff; /* Weiße Buttons */
-            color: #2193b0; /* Dunkelblaue Schrift */
-            padding: 15px 30px; /* Größere Buttons */
-            border: none;
-            border-radius: 30px; /* Stark abgerundete Ecken */
+            background-color: #1f1f1f; /* Dunkelgraue Buttons */
+            color: #fff; /* Weiße Schrift */
+            padding: 15px 30px;
+            border: 2px solid #444; /* Grenze für Buttons */
+            border-radius: 30px;
             cursor: pointer;
-            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            font-size: 18px; /* Größere Schrift */
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+            font-size: 18px;
         }
 
         button:hover {
-            background-color: #f8f8f8; /* Helles Grau beim Hover */
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            background-color: #333333; /* Dunkleres Grau beim Hover */
+            border-color: #666; /* Helle Grenze beim Hover */
             transform: scale(1.05);
         }
     </style>
