@@ -5,13 +5,15 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #f4f4f4;
+            background: linear-gradient(to right, #6dd5ed, #2193b0); /* Attraktiver Farbverlauf */
+            color: white; /* Weiße Schriftfarbe */
             text-align: center;
             padding-top: 50px;
+            min-height: 100vh; /* Sorgt dafür, dass der Body immer mindestens so hoch wie das Viewport ist */
         }
 
         h1 {
-            color: #333;
+            margin-bottom: 40px; /* Größerer Abstand unter der Überschrift */
         }
 
         .button-container, .dashboard-buttons, .survey-buttons {
@@ -22,23 +24,24 @@
         }
 
         .dashboard-buttons button, .survey-buttons button {
-            margin: 0 10px; /* Reduziert den Abstand zwischen den Buttons */
+            margin: 0 15px; /* Größerer Abstand zwischen den Buttons */
         }
 
         button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+            background-color: #ffffff; /* Weiße Buttons */
+            color: #2193b0; /* Dunkelblaue Schrift */
+            padding: 15px 30px; /* Größere Buttons */
             border: none;
-            border-radius: 5px;
+            border-radius: 30px; /* Stark abgerundete Ecken */
             cursor: pointer;
             transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-            box-shadow: 2px 2px 4px #aaa; /* Schatten hinzugefügt */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 18px; /* Größere Schrift */
         }
 
         button:hover {
-            background-color: #45a049;
-            box-shadow: 3px 3px 5px #888; /* Schatten verändert beim Hover */
+            background-color: #f8f8f8; /* Helles Grau beim Hover */
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
             transform: scale(1.05);
         }
     </style>
