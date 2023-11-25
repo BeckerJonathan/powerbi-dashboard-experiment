@@ -181,31 +181,29 @@
         }
     </style>
 </head>
-<body>
-    <h1 align="center">Power BI Dashboard Experiment</h1>
-    <h2 align="center">Statisches Dashboard</h2>
-    <button class="back-button" onclick="window.location.href='index.html';">Startseite</button>
-            
-    <button id="group1Button">Gruppe 1</button>
-    <button id="group2Button">Gruppe 2</button>
-            
-            
-    <div id="control-buttons">
-        <button id="startButton">Start</button>
-        <button id="nextButton" style="display:none;">Weiter</button>
-    </div>
-            
-    <div id="question" style="display:none;">
-        <p id="questionText"></p>
-        <input type="text" id="answerInput" placeholder="Antwort eingeben">
-        <button id="stopButton">Stopp</button>
-    </div>
+    <body>
+        <h1 align="center">Power BI Dashboard Experiment</h1>
+        <h2 align="center">Statisches Dashboard</h2>
+        <button class="back-button" onclick="window.location.href='index.html';">Startseite</button>
+                
+        <button id="group1Button">Gruppe 1</button>
+        <button id="group2Button">Gruppe 2</button>
+                
+                
+        <div id="control-buttons">
+            <button id="startButton">Start</button>
+            <button id="nextButton" style="display:none;">Weiter</button>
+        </div>
+                
+        <div id="question" style="display:none;">
+            <p id="questionText"></p>
+            <input type="text" id="answerInput" placeholder="Antwort eingeben">
+            <button id="stopButton">Stopp</button>
+        </div>
+        
+        <!-- Eingebettetes Power BI-Dashboard -->
+        <iframe id="powerbiFrame" title="Experiment_v1" src="https://app.powerbi.com/view?r=eyJrIjoiZDJlODhjNTktNmM1ZC00NmIyLWJlNzUtNWNiM2ZhNmUyNjU2IiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true" style="width: 100%; height: 800px;"></iframe>
     
-    <!-- Eingebettetes Power BI-Dashboard -->
-    <iframe id="powerbiFrame" title="Experiment_v1" src="https://app.powerbi.com/view?r=eyJrIjoiZDJlODhjNTktNmM1ZC00NmIyLWJlNzUtNWNiM2ZhNmUyNjU2IiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true" style="width: 100%; height: 800px;"></iframe>
-
-
-
-
-</body>
+    
+    </body>
 </html>
