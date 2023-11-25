@@ -105,7 +105,6 @@
             background: #ffffff; /* Weißer Hintergrund */
             color: #333; /* Dunkle Schriftfarbe */
             text-align: center;
-            padding-top: 50px;
             min-height: 100vh;
         }
         
@@ -179,22 +178,24 @@
             border-color: #666;
             transform: scale(1.05);
         }
+
+
     </style>
 </head>
     <body>
         <h1 align="center">Power BI Dashboard Experiment</h1>
         <h2 align="center">Statisches Dashboard</h2>
         <button class="back-button" onclick="window.location.href='index.html';">Startseite</button>
-                
+    
         <button id="group1Button">Gruppe 1</button>
         <button id="group2Button">Gruppe 2</button>
-                
-                
+    
+    
         <div id="control-buttons">
             <button id="startButton">Start</button>
             <button id="nextButton" style="display:none;">Weiter</button>
         </div>
-                
+    
         <div id="question" style="display:none;">
             <p id="questionText"></p>
             <input type="text" id="answerInput" placeholder="Antwort eingeben">
