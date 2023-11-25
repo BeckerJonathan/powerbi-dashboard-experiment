@@ -179,11 +179,7 @@
             border-color: #666;
             transform: scale(1.05);
         }
-        #questionPlaceholder {
-            display: block; /* Sorgt dafür, dass der Platzhalter immer angezeigt wird */
-            height: 80px; /* Die Höhe des Platzhalters, passend zur Höhe des Fragefeldes */
-            visibility: hidden; /* Macht den Platzhalter unsichtbar */
-        }
+
     </style>
 </head>
     <body>
@@ -194,8 +190,6 @@
         <button id="group1Button">Gruppe 1</button>
         <button id="group2Button">Gruppe 2</button>
     
-        <!-- Platzhalter -->
-        <div style="height: 25px;"></div> 
     
         <div id="control-buttons">
             <button id="startButton">Start</button>
@@ -207,8 +201,6 @@
             <input type="text" id="answerInput" placeholder="Antwort eingeben">
             <button id="stopButton">Stopp</button>
         </div>
-    
-        <div id="questionPlaceholder"></div>
         
         <!-- Eingebettetes Power BI-Dashboard -->
         <iframe id="powerbiFrame" title="Experiment_v1" src="https://app.powerbi.com/view?r=eyJrIjoiNGNmNTU0ZjctYzRmYy00Y2JlLWI4ZmEtOWQ3NTMwNjRlN2RjIiwidCI6ImFkNTY1Mjk4LTg5ZDMtNDYwYy1hZTNjLWM3N2E3ZTlhMjFlOSJ9" frameborder="0" allowFullScreen="true" style="width: 100%; height: 800px;"></iframe>
