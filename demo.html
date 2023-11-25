@@ -180,10 +180,32 @@
             transform: scale(1.05);
         }
 
+        #header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px; /* Fügt ein wenig Abstand an den Seiten hinzu */
+        }
+
+        .back-button {
+            margin: 10px;
+        }
+
+        h1 {
+            flex-grow: 1; /* Ermöglicht es der Überschrift, den verfügbaren Platz auszunutzen */
+            text-align: center;
+        }
+
     </style>
 </head>
     <body>
-        <h1 align="center">Power BI Dashboard Experiment</h1>
+
+        <div id="header-container">
+            <button class="back-button" onclick="window.location.href='index.html';">Startseite</button>
+            <h1>Power BI Dashboard Experiment</h1>
+            <div style="width: 100px;"> <!-- Leerer Platzhalter für symmetrisches Layout -->
+            </div>
+        </div>
         <h2 align="center">Demo</h2>
         <button class="back-button" onclick="window.location.href='index.html';">Startseite</button>
     
