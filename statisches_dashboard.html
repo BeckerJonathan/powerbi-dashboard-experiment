@@ -5,8 +5,8 @@
     <script type="text/javascript">
         let startTime, endTime, currentQuestion = 0;
         let selectedGroup = "";
-        const questionsGroup1 = ["Wie viel Umsatz wird im Frühling gemacht?", "Wie ist die durchschnittliche Bewertung bei Express Versand?", "Wie viel Umsatz macht das umsatzstärkste Produkt in der Kategorie 'Kleidung'?", "Wie viele männliche Kunden gibt es in der Altersgruppe 35-39?", "Welche Altersgruppe zahlt am häufigsten mit PayPal und wie oft?", "Wie oft wird das Produkt 'Hose' monatlich gekauft?"];
-        const questionsGroup2 = ["Wie viel Umsatz wurde in dem Staat 'California' gemacht?", "Welche durchschnittliche Bewertung gibt die Altersgruppe 45-49 ab?", "Wie viel Umsatz hat die Kategorie 'Zubehör' gemacht?", "Wie viele weibliche Kunden sind keine Abonnenten?", "Welches Produkt wird im Winter am meisten verkauft?", "Welche Zahlungsmethode wird bei Abholung im Geschäft am meisten verwendet?"];
+        const questionsGroup1 = ["Wie viel Umsatz wird im Frühling generiert?", "Wie ist die durchschnittliche Bewertung bei Express Versand?", "Wie viel Umsatz macht das umsatzstärkste Produkt in der Kategorie 'Kleidung'?", "Wie viele männliche Kunden gibt es in der Altersgruppe 35-39?", "Welche Altersgruppe zahlt am häufigsten mit PayPal und wie oft?", "Wie oft wird das Produkt 'Hose' monatlich gekauft?"];
+        const questionsGroup2 = ["Wie viel Umsatz wurde in dem Staat 'California' generiert?", "Welche durchschnittliche Bewertung gibt die Altersgruppe 45-49 ab?", "Wie viel Umsatz hat die Kategorie 'Zubehör' generiert?", "Wie viele weibliche Kunden sind keine Abonnenten?", "Welches Produkt wird im Winter am meisten verkauft?", "Welche Zahlungsmethode wird bei Abholung im Geschäft am meisten verwendet?"];
         let questions;
         
         document.addEventListener('DOMContentLoaded', () => {
@@ -36,7 +36,7 @@
         }
         
         function startExperiment() {
-            startTime = new Date();
+            startTime = new Date(); // Startzeit setzen, wenn das Experiment beginnt
             document.getElementById('startButton').style.display = 'none';
             document.getElementById('question').style.display = 'block';
             document.getElementById('nextButton').style.display = 'none';
@@ -44,11 +44,11 @@
         
         function stopExperiment() {
             endTime = new Date();
-            let duration = (endTime - startTime) / 1000;
+            let duration = (endTime - startTime) / 1000; // Dauer seit der letzten Startzeit
             let answer = document.getElementById('answerInput').value;
             let currentQuestionText = questions[currentQuestion];
         
-            console.log("Aktuelle Frage:", questions[currentQuestion]);
+            console.log("Aktuelle Frage:", currentQuestionText);
             console.log("Startzeit:", startTime);
             console.log("Endzeit:", endTime);
             console.log("Dauer:", duration);
@@ -64,15 +64,15 @@
             if (currentQuestion < questions.length - 1) {
                 currentQuestion++;
                 updateQuestion();
-                document.getElementById('question').style.display = 'block'; // Zeigt das Fragefeld an
-                document.getElementById('nextButton').style.display = 'none'; // Versteckt den "Weiter"-Button
+                document.getElementById('question').style.display = 'block';
+                document.getElementById('nextButton').style.display = 'none';
+                startTime = new Date(); // Startzeit neu setzen, wenn die nächste Frage beginnt
             } else {
                 alert('Experiment abgeschlossen. Vielen Dank für Ihre Teilnahme!');
-                document.getElementById('question').style.display = 'none'; // Versteckt das Fragefeld
-                document.getElementById('nextButton').style.display = 'none'; // Versteckt den "Weiter"-Button
+                document.getElementById('question').style.display = 'none';
+                document.getElementById('nextButton').style.display = 'none';
             }
         }
-        
         function updateQuestion() {
             document.getElementById('questionText').textContent = questions[currentQuestion];
         }
