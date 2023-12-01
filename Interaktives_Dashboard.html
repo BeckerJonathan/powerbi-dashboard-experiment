@@ -36,7 +36,7 @@
         }
         
         function startExperiment() {
-            startTime = new Date();
+            startTime = new Date(); // Startzeit setzen, wenn das Experiment beginnt
             document.getElementById('startButton').style.display = 'none';
             document.getElementById('question').style.display = 'block';
             document.getElementById('nextButton').style.display = 'none';
@@ -44,11 +44,11 @@
         
         function stopExperiment() {
             endTime = new Date();
-            let duration = (endTime - startTime) / 1000;
+            let duration = (endTime - startTime) / 1000; // Dauer seit der letzten Startzeit
             let answer = document.getElementById('answerInput').value;
             let currentQuestionText = questions[currentQuestion];
         
-            console.log("Aktuelle Frage:", questions[currentQuestion]);
+            console.log("Aktuelle Frage:", currentQuestionText);
             console.log("Startzeit:", startTime);
             console.log("Endzeit:", endTime);
             console.log("Dauer:", duration);
@@ -59,20 +59,20 @@
             document.getElementById('answerInput').value = '';
             document.getElementById('nextButton').style.display = 'block';
         }
-        
+                
         function nextQuestion() {
             if (currentQuestion < questions.length - 1) {
                 currentQuestion++;
                 updateQuestion();
-                document.getElementById('question').style.display = 'block'; // Zeigt das Fragefeld an
-                document.getElementById('nextButton').style.display = 'none'; // Versteckt den "Weiter"-Button
+                document.getElementById('question').style.display = 'block';
+                document.getElementById('nextButton').style.display = 'none';
+                startTime = new Date(); // Startzeit neu setzen, wenn die nächste Frage beginnt
             } else {
                 alert('Experiment abgeschlossen. Vielen Dank für Ihre Teilnahme!');
-                document.getElementById('question').style.display = 'none'; // Versteckt das Fragefeld
-                document.getElementById('nextButton').style.display = 'none'; // Versteckt den "Weiter"-Button
+                document.getElementById('question').style.display = 'none';
+                document.getElementById('nextButton').style.display = 'none';
             }
         }
-        
         function updateQuestion() {
             document.getElementById('questionText').textContent = questions[currentQuestion];
         }
